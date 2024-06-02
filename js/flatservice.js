@@ -1,14 +1,13 @@
 class Flat {
-    constructor(id, price, thumbail, calenderURL, picsPath, description) {
+    constructor(id, price, thumbail, calenderURL, numberPics, description) {
         this.id = id;
         this.price = price;
         this.thumbail = thumbail;
         this.calenderURL = calenderURL;
-        this.picsPath = picsPath;
+        this.numberPics = numberPics;
         this.description = description;
     }
 }
-
 
 function createFlatElement(Flat){
     var flat = document.createElement("div");
@@ -45,38 +44,14 @@ function createFlatElement(Flat){
     return flat;
 }
 
+function createModalElement(Flat){
+
+}
 
 // Testing template only temporarly, will be replaced with json-parser
-var test = new Flat('57', '10', 'images/product/test.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test2 = new Flat('2', '19', 'images/product/test2.jpeg', 'www.google.de', '/images/product/', '4 Personen');
-var test3 = new Flat('1111', '20000', 'images/product/test3.jpeg', 'www.google.de', '/images/product/', '20 Personen');
-var test4 = new Flat('33', '1', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '1 Person');
-var test5 = new Flat('12', '199', 'images/product/test5.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test6 = new Flat('19', '199', 'images/product/test7.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test7 = new Flat('22222', '199', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test8 = new Flat('1', '199', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test9 = new Flat('52', '199', 'images/product/test3.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test10 = new Flat('76', '333333', 'images/product/test7.jpeg', 'www.google.de', '/images/product/', '2 Personen');
+var f1 = new Flat('1', '100', 'images/flat1/thumbmail.jpeg', 'www.google.de', '6', '2 Personen');
 
-var flatElement = createFlatElement(test);
-var flatElement2 = createFlatElement(test2);
-var flatElement3 = createFlatElement(test3);
-var flatElement4 = createFlatElement(test4);
-var flatElement5= createFlatElement(test5);
-var flatElement6 = createFlatElement(test6);
-var flatElement7 = createFlatElement(test6);
-var flatElement8 = createFlatElement(test8);
-var flatElement9 = createFlatElement(test9);
-var flatElement10 = createFlatElement(test10);
+var f1_element = createFlatElement(f1);
 
 var parent = document.getElementById('flatlist');
-parent.appendChild(flatElement);
-parent.appendChild(flatElement2);
-parent.appendChild(flatElement3);
-parent.appendChild(flatElement4);
-parent.appendChild(flatElement5);
-parent.appendChild(flatElement6);
-parent.appendChild(flatElement7);
-parent.appendChild(flatElement8);
-parent.appendChild(flatElement9);
-parent.appendChild(flatElement10);
+parent.appendChild(f1_element);
