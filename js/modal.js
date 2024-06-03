@@ -15,17 +15,15 @@ function generateModalElement(flatid) {
   span.classList.add("cursor");
   span.classList.add("close");
   span.setAttribute("onclick", "closeModal()");
-  var spanText = document.createTextNode("&times;");
-  span.appendChild(spanText);
+  var spanText = document.createTextNode('&times;');
+  span.innerHTML = "&times;";
   var nextButton = document.createElement("a");
   nextButton.setAttribute("onclick", "plusSlides(1)");
   nextButton.classList.add("next");
-  var rightArrow = document.createTextNode("&#10095;")
-  nextButton.appendChild(rightArrow);
+  nextButton.innerHTML = "&#10095;";
   var previousButton = document.createElement("a");
   previousButton.classList.add("prev");
-  var leftArrow = document.createTextNode("&#10094;")
-  previousButton.appendChild(leftArrow);
+  previousButton.innerHTML = "&#10094;";
   previousButton.setAttribute("onclick", "plusSlides(-1)");
   
   // create modal content

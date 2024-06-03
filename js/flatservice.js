@@ -45,23 +45,35 @@ function createFlatElement(Flat){
     return flat;
 }
 
-// Testing template only temporarly, will be replaced with json-parser
+// generate Flat object
 var f1 = new Flat('1', '100', 'images/flats/f1/thumbmail.jpg', 'www.google.de', 7, '2 Personen');
+var f2 = new Flat('2', '199', 'images/flats/f2/thumbmail.jpg', 'www.google.de', 2, '1 - 2 Personen');
 var f3 = new Flat('3', '49', 'images/flats/f3/thumbmail.jpg', 'www.google.de', 9, '4 Personen');
+var f4 = new Flat('4', '122', 'images/flats/f4/thumbmail.jpg', 'www.google.de', 3, '2 Personen');
+var f5 = new Flat('5', '200', 'images/flats/f5/thumbmail.jpg', 'www.google.de', 1, '1 Person');
 
+// generate html node from flat object
 var f1_element = createFlatElement(f1);
+var f2_element = createFlatElement(f2);
 var f3_element = createFlatElement(f3);
+var f4_element = createFlatElement(f4);
+var f5_element = createFlatElement(f5);
 
+// append html-nodes as childnodes in website
 var parent = document.getElementById('flatlist');
 parent.appendChild(f1_element);
+parent.appendChild(f2_element);
 parent.appendChild(f3_element);
+parent.appendChild(f4_element);
+parent.appendChild(f5_element);
 
+// gets called by modal service
 function get_flat(id){
-    if(id == 1){
-        return f1;
-    }
-
-    if(id == 3){
-        return f3;
+    switch (id) {
+        case 1 : return f1;
+        case 2 : return f2;
+        case 3 : return f3;
+        case 4 : return f4;
+        case 5 : return f5;
     }
 }
