@@ -16,6 +16,7 @@ function createFlatElement(Flat){
     flat.classList.add('mb-3');
     var thumbail = document.createElement("img");
     thumbail.src = Flat.thumbail;
+    thumbail.setAttribute("onclick", "openModal("+Flat.id+");");
     thumbail.classList.add('img-fluid');
     thumbail.classList.add('product-image');
     flat.appendChild(thumbail);
@@ -44,14 +45,23 @@ function createFlatElement(Flat){
     return flat;
 }
 
-function createModalElement(Flat){
-
-}
-
 // Testing template only temporarly, will be replaced with json-parser
-var f1 = new Flat('1', '100', 'images/flat1/thumbmail.jpeg', 'www.google.de', '6', '2 Personen');
+var f1 = new Flat('1', '100', 'images/flats/f1/thumbmail.jpg', 'www.google.de', 7, '2 Personen');
+var f3 = new Flat('3', '49', 'images/flats/f3/thumbmail.jpg', 'www.google.de', 9, '4 Personen');
 
 var f1_element = createFlatElement(f1);
+var f3_element = createFlatElement(f3);
 
 var parent = document.getElementById('flatlist');
 parent.appendChild(f1_element);
+parent.appendChild(f3_element);
+
+function get_flat(id){
+    if(id == 1){
+        return f1;
+    }
+
+    if(id == 3){
+        return f3;
+    }
+}
