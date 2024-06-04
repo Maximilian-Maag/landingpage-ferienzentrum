@@ -1,5 +1,6 @@
 // generate Modal and add it to DOM
 var slideIndex = 1;
+var navbar;
 
 function generateModalElement(flatid) {
   // load corrosponding flat
@@ -33,8 +34,6 @@ function generateModalElement(flatid) {
 
   //append images
   for (let i = 1; i <= numPics; i += 1){
-    console.log("debug info: value of i"+i+" value of numPics: "+numPics);
-    console.log("append picture: "+i+" to lightbox \n");
     var picNode = document.createElement("div");
     picNode.classList.add("mySlides");
     var imgNode = document.createElement("img");
@@ -44,11 +43,23 @@ function generateModalElement(flatid) {
     modalContent.appendChild(picNode);
   }
 
+  // integrate calender
+  var calNode = document.createElement("div");
+  calNode.classList.add("mySlides")
+  var calData = document.createElement("iframe");
+  calData.src = flat.calenderURL;
+  calData.style = "width:100%";
+  calData.height = 480;
+  calData.loading = "lazy";
+  calData.frameBorder = 0;
+  calNode.appendChild(calData);
+
   // assamble modal
   modal.appendChild(modalContent);
   modal.appendChild(span);
   modal.appendChild(nextButton);
   modal.appendChild(previousButton);
+  modal.appendChild(calNode);
   return modal;
 }
 
@@ -56,6 +67,8 @@ function generateModalElement(flatid) {
 function openModal(flatid) {
     var modal = generateModalElement(flatid);
     var anchor = document.getElementById("anchorpoint");
+    navbar = document.getElementById("navbar-overview-page");
+    anchor.removeChild(navbar); // remove navbar
     anchor.appendChild(modal);
     showSlides(0);
 }
@@ -65,6 +78,7 @@ function closeModal() {
   var parent = document.getElementById("anchorpoint");
   var child = document.getElementById("modal");
   parent.removeChild(child);
+  parent.appendChild(navbar); // restore navbar
 }
 
 // Next/previous controls
