@@ -1,6 +1,0 @@
-# data structure flat
-# id:int flat id
-# thumbmail:jpeg thumbail to show in overview
-# calanderurl:string url to booking calander
-# picturepath:string path to flat pictures shown in detail view
-# price:int price per night

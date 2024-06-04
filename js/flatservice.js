@@ -1,14 +1,13 @@
 class Flat {
-    constructor(id, price, thumbail, calenderURL, picsPath, description) {
+    constructor(id, price, thumbail, calenderURL, numberPics, description) {
         this.id = id;
         this.price = price;
         this.thumbail = thumbail;
         this.calenderURL = calenderURL;
-        this.picsPath = picsPath;
+        this.numberPics = numberPics;
         this.description = description;
     }
 }
-
 
 function createFlatElement(Flat){
     var flat = document.createElement("div");
@@ -17,6 +16,7 @@ function createFlatElement(Flat){
     flat.classList.add('mb-3');
     var thumbail = document.createElement("img");
     thumbail.src = Flat.thumbail;
+    thumbail.setAttribute("onclick", "openModal("+Flat.id+");");
     thumbail.classList.add('img-fluid');
     thumbail.classList.add('product-image');
     flat.appendChild(thumbail);
@@ -45,38 +45,37 @@ function createFlatElement(Flat){
     return flat;
 }
 
+// generate Flat object
+// var f = new Flat(id, pricepernight, thumbmail, calenderURL, numberOfFlatPictures, Description);
+var f1 = new Flat('1', '100', 'images/flats/f1/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35565', 7, '2 Personen');
+var f2 = new Flat('2', '199', 'images/flats/f2/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35566', 7, '1 - 2 Personen');
+var f3 = new Flat('3', '49', 'images/flats/f3/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=29061', 9, '4 Personen');
+var f4 = new Flat('4', '122', 'images/flats/f4/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=34755', 5, '2 Personen');
+var f5 = new Flat('5', '200', 'images/flats/f5/thumbmail.jpg', 'https://www.google.de', 0, '1 Person');
 
-// Testing template only temporarly, will be replaced with json-parser
-var test = new Flat('57', '10', 'images/product/test.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test2 = new Flat('2', '19', 'images/product/test2.jpeg', 'www.google.de', '/images/product/', '4 Personen');
-var test3 = new Flat('1111', '20000', 'images/product/test3.jpeg', 'www.google.de', '/images/product/', '20 Personen');
-var test4 = new Flat('33', '1', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '1 Person');
-var test5 = new Flat('12', '199', 'images/product/test5.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test6 = new Flat('19', '199', 'images/product/test7.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test7 = new Flat('22222', '199', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test8 = new Flat('1', '199', 'images/product/test4.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test9 = new Flat('52', '199', 'images/product/test3.jpeg', 'www.google.de', '/images/product/', '2 Personen');
-var test10 = new Flat('76', '333333', 'images/product/test7.jpeg', 'www.google.de', '/images/product/', '2 Personen');
+// generate html node from flat object
+// var f_element = createFlatElement(f);
+var f1_element = createFlatElement(f1);
+var f2_element = createFlatElement(f2);
+var f3_element = createFlatElement(f3);
+var f4_element = createFlatElement(f4);
+var f5_element = createFlatElement(f5);
 
-var flatElement = createFlatElement(test);
-var flatElement2 = createFlatElement(test2);
-var flatElement3 = createFlatElement(test3);
-var flatElement4 = createFlatElement(test4);
-var flatElement5= createFlatElement(test5);
-var flatElement6 = createFlatElement(test6);
-var flatElement7 = createFlatElement(test6);
-var flatElement8 = createFlatElement(test8);
-var flatElement9 = createFlatElement(test9);
-var flatElement10 = createFlatElement(test10);
-
+// append html-nodes as childnodes in DOM-tree
 var parent = document.getElementById('flatlist');
-parent.appendChild(flatElement);
-parent.appendChild(flatElement2);
-parent.appendChild(flatElement3);
-parent.appendChild(flatElement4);
-parent.appendChild(flatElement5);
-parent.appendChild(flatElement6);
-parent.appendChild(flatElement7);
-parent.appendChild(flatElement8);
-parent.appendChild(flatElement9);
-parent.appendChild(flatElement10);
+parent.appendChild(f1_element);
+parent.appendChild(f2_element);
+parent.appendChild(f3_element);
+parent.appendChild(f4_element);
+parent.appendChild(f5_element);
+
+// gets called by modal service and returns flat data
+function get_flat(id){
+    switch (id) {
+        case 1 : return f1;
+        case 2 : return f2;
+        case 3 : return f3;
+        case 4 : return f4;
+        case 5 : return f5;
+    }
+}
