@@ -39,6 +39,9 @@ function generateModalElement(flatid) {
     var imgNode = document.createElement("img");
     imgNode.src = "images/flats/f"+id+"/"+i+".jpg";
     imgNode.style = "width:100%";
+    imgNode.height = 720;
+    var picNumberNode = document.createElement("div");
+    picNumberNode.classList.add("numbertext");
     picNode.appendChild(imgNode);
     modalContent.appendChild(picNode);
   }
@@ -70,7 +73,7 @@ function openModal(flatid) {
     navbar = document.getElementById("navbar-overview-page");
     anchor.removeChild(navbar); // remove navbar
     anchor.appendChild(modal);
-    showSlides(0);
+    showSlides(1);
 }
   
 // Close the Modal
