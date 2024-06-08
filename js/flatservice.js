@@ -47,11 +47,11 @@ function createFlatElement(Flat){
 
 // generate Flat object
 // var f = new Flat(id, pricepernight, thumbmail, calenderURL, numberOfFlatPictures, Description);
-var f1 = new Flat('1', '69', 'images/flats/f1/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35565', 7, '2 Personen');
-var f2 = new Flat('2', '39', 'images/flats/f2/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35566', 7, '1 - 2 Personen');
-var f3 = new Flat('3', '79', 'images/flats/f3/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=29061', 9, '4 Personen');
-var f4 = new Flat('4', '69', 'images/flats/f4/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=34755', 5, '2 Personen');
-var f5 = new Flat('5', '99', 'images/flats/f5/thumbmail.jpg', 'https://www.google.de', 0, '1 Person');
+var f1 = new Flat('1', '69', 'images/flats/f1/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35565', 7, 'ca. 45 qm 1 - 4 Personen');
+var f2 = new Flat('2', '39', 'images/flats/f2/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=35566', 6, 'ca. 26 qm 1 - 2 Personen');
+var f3 = new Flat('3', '79', 'images/flats/f3/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=29061', 9, 'ca. 57 qm 1 - 4 Personen');
+var f4 = new Flat('4', '69', 'images/flats/f4/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=34755', 6, 'ca. 45 qm 1 - 4 Personen');
+var f5 = new Flat('5', '99', 'images/flats/f5/thumbmail.jpg', 'https://api.belegungskalender-kostenlos.de/kalender.php?kid=53749', 6, 'ca. 70 qm 1 - 4 Personen');
 
 // generate html node from flat object
 // var f_element = createFlatElement(f);
