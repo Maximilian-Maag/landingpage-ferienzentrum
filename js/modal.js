@@ -78,12 +78,13 @@ function generateModalElement(flatid) {
 
 // Open the Modal
 function openModal(flatid) {
+    slideIndex = 0;
     var modal = generateModalElement(flatid);
     var anchor = document.getElementById("anchorpoint");
     navbar = document.getElementById("navbar-overview-page");
     anchor.removeChild(navbar); // remove navbar
     anchor.appendChild(modal);
-    showSlides(1);
+    showSlides(0);
 }
   
 // Close the Modal
