@@ -1,5 +1,5 @@
 // generate Modal and add it to DOM
-var slideIndex = 1;
+var slideIndex = 0;
 var navbar;
 
 function generateModalElement(flatid) {
@@ -31,6 +31,16 @@ function generateModalElement(flatid) {
   var modalContent = document.createElement("div");
   modalContent.classList.add("modal-content");
   modal.style.display = "block";
+
+  // append thumbmail with slide index 0
+  var thumbNode = document.createElement("div");
+  thumbNode.classList.add("mySlides");
+  var thumbmail = document.createElement("img");
+  thumbmail.src = "images/flats/f" + id +"/thumbmail.jpg";
+  thumbmail.style = "width:100%";
+  thumbmail.height = 720;
+  thumbNode.appendChild(thumbmail);
+  modalContent.appendChild(thumbNode);
 
   //append images
   for (let i = 1; i <= numPics; i += 1){
@@ -82,6 +92,7 @@ function closeModal() {
   var child = document.getElementById("modal");
   parent.removeChild(child);
   parent.appendChild(navbar); // restore navbar
+  slideIndex = 0;
 }
 
 // Next/previous controls
@@ -97,10 +108,11 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length - 1) {slideIndex = 0;}
+  if (n < 0) {slideIndex = slides.length - 1;}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  slides[slideIndex-1].style.display = "block";
+    
+  slides[slideIndex].style.display = "block";
 } 
